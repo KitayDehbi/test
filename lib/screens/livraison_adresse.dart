@@ -87,7 +87,7 @@ class _LivraisonAdresseState extends State<LivraisonAdresse> {
               Padding(
                 padding: EdgeInsets.fromLTRB(35, 10, 35, 0),
                 child: Text(
-                  'Saisissez votre L\'addresse de livraison.\n',
+                  'Saisissez l\'addresse de livraison.\n',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontFamily: 'Lato',

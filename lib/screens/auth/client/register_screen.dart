@@ -21,11 +21,12 @@ class _RegisterClientState extends State<RegisterClient> {
   final TextEditingController nomController = TextEditingController();
   final AuthController _authController = AuthController();
   bool loading = false;
-  signUp(String nom, String email, String password ,String tel, String adresse) {
+  signUp(
+      String nom, String email, String password, String tel, String adresse) {
     setState(() {
       loading = true;
       _authController
-          .signUp(nom,email.trim(), password, tel, adresse,null)
+          .signUp(nom, email.trim(), password, tel, adresse, null)
           .whenComplete(() async {
         if (_authController.getStatus() != 200) {
           setState(() {
@@ -38,8 +39,8 @@ class _RegisterClientState extends State<RegisterClient> {
             phoneController.text = "";
           });
         } else {
-           SharedPreferences prefs = await SharedPreferences.getInstance();
-           await prefs.setString('token', _authController.getToken());
+          SharedPreferences prefs = await SharedPreferences.getInstance();
+          await prefs.setString('token', _authController.getToken());
           setState(() {
             loading = false;
           });
@@ -88,7 +89,7 @@ class _RegisterClientState extends State<RegisterClient> {
                           child: Padding(
                             padding: const EdgeInsets.only(left: 10.0),
                             child: Text(
-                              'S’inscrire sur Strong delivery',
+                              'S’inscrire sur Strong Delivery',
                               style: TextStyle(
                                 color: Colors.black87,
                                 fontSize: 18.0,
@@ -184,7 +185,7 @@ class _RegisterClientState extends State<RegisterClient> {
                                 child: TextFormField(
                                   validator: (value) {
                                     if (value == null || value.isEmpty) {
-                                      return 'entez votre email';
+                                      return 'Entez votre email';
                                     }
                                     return null;
                                   },
@@ -205,7 +206,7 @@ class _RegisterClientState extends State<RegisterClient> {
                                 child: TextFormField(
                                   validator: (value) {
                                     if (value == null || value.isEmpty) {
-                                      return 'entez votre mot de passe';
+                                      return 'Entez votre mot de passe';
                                     }
                                     return null;
                                   },
@@ -227,7 +228,7 @@ class _RegisterClientState extends State<RegisterClient> {
                                 child: TextFormField(
                                   validator: (value) {
                                     if (value == null || value.isEmpty) {
-                                      return 'entez votre Numero de tel';
+                                      return 'Entez votre Numero de tel';
                                     }
                                     return null;
                                   },
@@ -248,7 +249,7 @@ class _RegisterClientState extends State<RegisterClient> {
                                 child: TextFormField(
                                   validator: (value) {
                                     if (value == null || value.isEmpty) {
-                                      return 'entez votre adresse';
+                                      return 'Entez votre adresse';
                                     }
                                     return null;
                                   },
@@ -273,37 +274,40 @@ class _RegisterClientState extends State<RegisterClient> {
                             width: double.infinity,
                             height: 40,
                             child: loading == true
-                                        ? Center(
-                                            child: CircularProgressIndicator(
-                                            backgroundColor:
-                                                Colors.white,
-                                                color: Colors.deepOrangeAccent,
-                                          ))
-                                        : RaisedButton(
-                              shape: RoundedRectangleBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(30.0)),
-                              ),
-                              color: Theme.of(context).primaryColor,
-                              onPressed: () async {
-                                if (_formKey.currentState.validate()) {
-                                  await signUp(nomController.text, emailController.text,
-                                      passwordController.text , phoneController.text, adresseController.text);
-                                } else {
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                          content: Text(
-                                              'veuillez remlir les champs')));
-                                }
-                              },
-                              child: Text(
-                                'S\'inscrire',
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 20.0),
-                              ),
-                            ),
+                                ? Center(
+                                    child: CircularProgressIndicator(
+                                    backgroundColor: Colors.white,
+                                    color: Colors.deepOrangeAccent,
+                                  ))
+                                : RaisedButton(
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(30.0)),
+                                    ),
+                                    color: Theme.of(context).primaryColor,
+                                    onPressed: () async {
+                                      if (_formKey.currentState.validate()) {
+                                        await signUp(
+                                            nomController.text,
+                                            emailController.text,
+                                            passwordController.text,
+                                            phoneController.text,
+                                            adresseController.text);
+                                      } else {
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(SnackBar(
+                                                content: Text(
+                                                    'Veuillez remplir les champs')));
+                                      }
+                                    },
+                                    child: Text(
+                                      'S\'inscrire',
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 20.0),
+                                    ),
+                                  ),
                           ),
                         ),
                         SizedBox(height: 10.0),
@@ -311,7 +315,7 @@ class _RegisterClientState extends State<RegisterClient> {
                           textAlign: TextAlign.center,
                           text: TextSpan(children: <TextSpan>[
                             TextSpan(
-                                text: "Déjà inscrit ? ",
+                                text: "Déjà inscrit ?",
                                 style: TextStyle(color: Colors.black87)),
                             TextSpan(
                                 text: "S\'identifier",

@@ -23,8 +23,8 @@ class _RegisterLivreureState extends State<RegisterLivreure> {
   final TextEditingController ribController = TextEditingController();
   final AuthController _authController = AuthController();
   bool loading = false;
-  signUp(
-      String nom, String email, String password, String tel, String adresse, String rib) {
+  signUp(String nom, String email, String password, String tel, String adresse,
+      String rib) {
     setState(() {
       loading = true;
       _authController
@@ -40,7 +40,6 @@ class _RegisterLivreureState extends State<RegisterLivreure> {
             passwordController.text = "";
             phoneController.text = "";
           });
-
         } else {
           SharedPreferences prefs = await SharedPreferences.getInstance();
           await prefs.setString('token', _authController.getToken());
@@ -230,7 +229,7 @@ class _RegisterLivreureState extends State<RegisterLivreure> {
                                   controller: ribController,
                                   cursorColor: Theme.of(context).primaryColor,
                                   decoration: InputDecoration(
-                                    icon: Icon(Icons.location_pin),
+                                    icon: Icon(Icons.credit_card),
                                     labelText: 'Rib',
                                   ),
                                 ),
@@ -259,18 +258,18 @@ class _RegisterLivreureState extends State<RegisterLivreure> {
                                     onPressed: () async {
                                       if (_formKey.currentState.validate()) {
                                         await signUp(
-                                            nomController.text,
-                                            emailController.text,
-                                            passwordController.text,
-                                            phoneController.text,
-                                            adresseController.text,
-                                            ribController.text,
-                                            );
+                                          nomController.text,
+                                          emailController.text,
+                                          passwordController.text,
+                                          phoneController.text,
+                                          adresseController.text,
+                                          ribController.text,
+                                        );
                                       } else {
                                         ScaffoldMessenger.of(context)
                                             .showSnackBar(SnackBar(
                                                 content: Text(
-                                                    'veuillez remlir les champs')));
+                                                    'Veuillez remlir les champs')));
                                       }
                                     },
                                     child: Text(
@@ -288,7 +287,7 @@ class _RegisterLivreureState extends State<RegisterLivreure> {
                           textAlign: TextAlign.center,
                           text: TextSpan(children: <TextSpan>[
                             TextSpan(
-                                text: "Déjà inscrit ? ",
+                                text: "Déjà inscrit ?",
                                 style: TextStyle(color: Colors.black87)),
                             TextSpan(
                                 text: "S\'identifier",

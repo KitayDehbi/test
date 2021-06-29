@@ -27,7 +27,7 @@ class _LoginLivreureState extends State<LoginLivreure> {
           setState(() {
             loading = false;
             ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text('email ou mot de passe inccorecte')));
+                SnackBar(content: Text('Email ou mot de passe inccorecte')));
 
             emailController.text = "";
             passwordController.text = "";
@@ -47,7 +47,7 @@ class _LoginLivreureState extends State<LoginLivreure> {
               loading = false;
             });
             ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text('vous n\êtes pas autorisé')));
+                SnackBar(content: Text('Vous n\êtes pas autorisé')));
           }
         }
       });
@@ -72,7 +72,7 @@ class _LoginLivreureState extends State<LoginLivreure> {
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.only(
-                      top: 100.0, left: 10.0, right: 10.0, bottom: 30.0),
+                      top: 50.0, left: 10.0, right: 10.0, bottom: 30.0),
                   child: Container(
                     height: 340.0,
                     decoration: BoxDecoration(
@@ -113,7 +113,7 @@ class _LoginLivreureState extends State<LoginLivreure> {
                                   controller: emailController,
                                   validator: (value) {
                                     if (value == null || value.isEmpty) {
-                                      return 'entrez votre email';
+                                      return 'Entrez votre email';
                                     }
                                     return null;
                                   },
@@ -135,7 +135,7 @@ class _LoginLivreureState extends State<LoginLivreure> {
                                     controller: passwordController,
                                     validator: (value) {
                                       if (value == null || value.isEmpty) {
-                                        return 'entez votre mot de passe';
+                                        return 'Entez votre mot de passe';
                                       }
                                       return null;
                                     },
@@ -177,7 +177,7 @@ class _LoginLivreureState extends State<LoginLivreure> {
                                                 ScaffoldMessenger.of(context)
                                                     .showSnackBar(SnackBar(
                                                         content: Text(
-                                                            'veuillez remlir les champs')));
+                                                            'Veuillez remlir les champs')));
                                               }
                                             },
                                             child: Text(
@@ -201,7 +201,7 @@ class _LoginLivreureState extends State<LoginLivreure> {
                           textAlign: TextAlign.center,
                           text: TextSpan(children: <TextSpan>[
                             TextSpan(
-                                text: "Pas inscrit ? ",
+                                text: "Pas inscrit ?",
                                 style: TextStyle(color: Colors.black87)),
                             TextSpan(
                                 text: "S'inscrire",

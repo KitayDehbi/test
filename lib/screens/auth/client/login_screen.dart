@@ -77,7 +77,7 @@ class _LoginClientState extends State<LoginClient> {
                   padding: const EdgeInsets.only(
                       top: 30.0, left: 10.0, right: 10.0, bottom: 30.0),
                   child: Container(
-                    height: 435.0,
+                    height: 370.0,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.only(
@@ -106,15 +106,6 @@ class _LoginClientState extends State<LoginClient> {
                         SizedBox(
                           height: 20.0,
                         ),
-                        // Center(
-                        //   child: Text(
-                        //     "ou",
-                        //     style: TextStyle(
-                        //         color: Colors.grey,
-                        //         fontWeight: FontWeight.w400,
-                        //         fontSize: 16.0),
-                        //   ),
-                        // ),
                         SizedBox(
                           height: 20.0,
                         ),

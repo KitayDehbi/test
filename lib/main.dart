@@ -6,7 +6,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:strong_delivery/Statics/server.dart';
 import 'package:strong_delivery/controllers/User.controller.dart';
 import 'package:strong_delivery/models/User.dart';
-import 'package:strong_delivery/screens/FoodDelivery.dart';
 import 'package:strong_delivery/screens/auth/livreure/ProfileLivreure.dart';
 import 'package:strong_delivery/screens/auth/space_screen.dart';
 import 'package:strong_delivery/screens/home_screen.dart';
@@ -56,15 +55,15 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   String token;
   @override
-  void initState()  {
+  void initState() {
     super.initState();
     getToken();
-    ;
   }
-User user  = User();
+
+  User user = User();
   Future<String> getToken() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-     user = await UserController().getUser();
+    user = await UserController().getUser();
     setState(() {
       token = prefs.getString('token');
     });
@@ -80,7 +79,11 @@ User user  = User();
         primaryColor: Colors.deepOrange,
         accentColor: Colors.white,
       ),
-     home : token == null ? Space() : user.getRole() =='livreure' ? ProfileLivreure() : Dashboard(), 
+      home: token == null
+          ? Space()
+          : user.getRole() == 'livreure'
+              ? ProfileLivreure()
+              : Dashboard(),
       routes: {
         '/notif': (context) => NewCommande(),
       },
